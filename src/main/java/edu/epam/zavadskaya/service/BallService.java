@@ -1,8 +1,11 @@
 package edu.epam.zavadskaya.service;
 
 import edu.epam.zavadskaya.entity.Ball;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BallService {
+    private static final Logger logger = LogManager.getLogger(BallService.class);
 
     //вычисления площади поверхности шара
     public double findArea(Ball ball){
@@ -15,12 +18,12 @@ public class BallService {
     }
 
     //соотношения объемов получаемых в результате рассечения шара координатной плоскостью
-    public double findRatioOfVolumes(){
+    public double findRatioOfVolumes(Ball ball){
         return 0;
     }
 
     //является ли объект шаром
-    public boolean isBall(){
+    public boolean isBall(Ball ball){
         return true;
     }
 

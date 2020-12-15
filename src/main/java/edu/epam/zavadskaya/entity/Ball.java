@@ -1,20 +1,30 @@
 package edu.epam.zavadskaya.entity;
 
 public class Ball {
-    private Point center;
+    //private long ballId;
+    private Point point;
     private double radius;
 
-    public Ball(Point center, double radius) {
-        this.center = center;
+
+    public Ball(Point point, double radius) {
+        this.point = point;
         this.radius = radius;
     }
 
+//    public long getBallId() {
+//        return ballId;
+//    }
+
+//    public void setBallId(long ballId) {
+//        this.ballId = ballId;
+//    }
+
     public Point getCenter() {
-        return center;
+        return point;
     }
 
     public void setCenter(Point center) {
-        this.center = center;
+        this.point = center;
     }
 
     public double getRadius() {
@@ -33,14 +43,14 @@ public class Ball {
         Ball ball = (Ball) o;
 
         if (Double.compare(ball.radius, radius) != 0) return false;
-        return center != null ? center.equals(ball.center) : ball.center == null;
+        return point != null ? point.equals(ball.point) : ball.point == null;
     }
 
     @Override
     public int hashCode() {
         int result;
         long temp;
-        result = center != null ? center.hashCode() : 0;
+        result = point != null ? point.hashCode() : 0;
         temp = Double.doubleToLongBits(radius);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
@@ -49,7 +59,7 @@ public class Ball {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Ball{");
-        sb.append("center=").append(center);
+        sb.append("center=").append(point);
         sb.append(", radius=").append(radius);
         sb.append('}');
         return sb.toString();
