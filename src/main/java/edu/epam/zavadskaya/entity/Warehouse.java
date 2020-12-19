@@ -11,12 +11,15 @@ public class Warehouse {
         map = new HashMap<>();
     }
 
+    public static Warehouse getInstance() {
+        return INSTANCE;
+    }
 
     public Map<Long,BallParameter> getMap(){
         return new HashMap<>(map);
     }
 
-    public BallParameter getByName(Long id){
+    public BallParameter getById(Long id){
         return map.get(id);
     }
 

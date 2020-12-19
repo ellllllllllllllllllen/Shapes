@@ -10,19 +10,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BallRepository implements Repository<Ball> {
-    private List<Ball> balls;
-    private static BallRepository ballRepository;
+    private static final BallRepository instance = new BallRepository();
+    private List<Ball> balls = new ArrayList<>();
 
-    private BallRepository() {
-        this.balls = new ArrayList<>();
-    }
+    private BallRepository() {}
 
     public static BallRepository getInstance() {
-        if (ballRepository == null) {
-            ballRepository = new BallRepository();
-        }
-        return ballRepository;
+        return instance;
     }
+
 
     @Override
     public void add(Ball ball) {

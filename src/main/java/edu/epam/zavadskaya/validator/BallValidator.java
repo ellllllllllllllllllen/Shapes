@@ -1,5 +1,7 @@
 package edu.epam.zavadskaya.validator;
 
+import edu.epam.zavadskaya.entity.Radius;
+
 public class BallValidator {
     private static BallValidator instance;
 
@@ -13,7 +15,7 @@ public class BallValidator {
         return instance;
     }
 
-    public static boolean isBallValid(double radius) {
-        return (radius <=0);
+    public static boolean isBallValid(Radius radius) {
+        return (radius.getRadius() <= 0);
     }
 }

@@ -1,37 +1,31 @@
 package edu.epam.zavadskaya.entity;
 
-public class Ball {
-    //private long ballId;
-    private Point point;
-    private double radius;
+public class Ball extends Shape{
+    private Point center;
+    private Radius radius;
 
-
-    public Ball(Point point, double radius) {
-        this.point = point;
+    public Ball(Point center, Radius radius) {
+        this.center = center;
         this.radius = radius;
     }
 
-//    public long getBallId() {
-//        return ballId;
-//    }
+    public Ball() {
 
-//    public void setBallId(long ballId) {
-//        this.ballId = ballId;
-//    }
+    }
 
     public Point getCenter() {
-        return point;
+        return center;
     }
 
     public void setCenter(Point center) {
-        this.point = center;
+        this.center = center;
     }
 
-    public double getRadius() {
+    public Radius getRadius() {
         return radius;
     }
 
-    public void setRadius(double radius) {
+    public void setRadius(Radius radius) {
         this.radius = radius;
     }
 
@@ -42,24 +36,21 @@ public class Ball {
 
         Ball ball = (Ball) o;
 
-        if (Double.compare(ball.radius, radius) != 0) return false;
-        return point != null ? point.equals(ball.point) : ball.point == null;
+        if (center != null ? !center.equals(ball.center) : ball.center != null) return false;
+        return radius != null ? radius.equals(ball.radius) : ball.radius == null;
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = point != null ? point.hashCode() : 0;
-        temp = Double.doubleToLongBits(radius);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        int result = center != null ? center.hashCode() : 0;
+        result = 31 * result + (radius != null ? radius.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Ball{");
-        sb.append("center=").append(point);
+        sb.append("center=").append(center);
         sb.append(", radius=").append(radius);
         sb.append('}');
         return sb.toString();
